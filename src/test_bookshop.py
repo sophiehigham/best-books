@@ -9,7 +9,7 @@ class TestInventory(unittest.TestCase):
 
     def test_find_book(self):
         found = self.Inventory.find_book("1984")
-        self.assertEqual(found.author, "George Orwel")
+        self.assertEqual(found.author, "George Orwell")
 
 if __name__ == "__main__":
     unittest.main()

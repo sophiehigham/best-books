@@ -1,4 +1,4 @@
 # best-books
 A repository to store my book inventory code.
 
-Trigger again.
+I have made this repo public so branch rules apply.
