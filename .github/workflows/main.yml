@@ -29,7 +29,3 @@ jobs:
 
       - name: test_script
         run: pytest
-
-      - name: Run tests with coverage
-        run: |
-          pytest --cov=your_module tests/coverage xml
