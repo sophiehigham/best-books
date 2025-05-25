@@ -13,18 +13,15 @@ class Inventory:
         self.books = []
     
     def add_books(self, book):
-        book.isbn = book.isbn.replace("-","")
         self.books.append(book)
     
     def find_book(self, isbn):
-        isbn = isbn.replace("-","")
         for book in self.books:
             if book.isbn == isbn:
                 return book
         return None
 
     def sell_book(self, isbn):
-        isbn = isbn.replace("-","")
         book = self.find_book(isbn)
         if book and book.stock > 0:
             book.stock-=1
@@ -32,7 +29,6 @@ class Inventory:
         return False
 
     def get_quantity(self, isbn):
-        isbn = isbn.replace("-","")
         for book in self.books:
             if book.isbn == isbn:
                 return book.stock
