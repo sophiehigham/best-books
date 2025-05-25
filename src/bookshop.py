@@ -14,16 +14,18 @@ class Inventory:
 
     def add_book(self, book):
         # Don't include hyphen in isbn for consistency
-        book.isbn = book.isbn.replace("-", "")
+        book.isbn = self.normalise_isbn(book.isbn)
         self.books.append(book)
 
     def find_book(self, isbn):
+        isbn = self.normalise_isbn(isbn)
         for book in self.books:
             if book.isbn == isbn:
                 return book
         return None
 
     def sell_book(self, isbn):
+        isbn = self.normalise_isbn(isbn)
         book = self.find_book(isbn)
         if book and book.stock > 0:
             book.stock -= 1
@@ -31,5 +33,9 @@ class Inventory:
         return False
 
     def get_quantity(self, isbn):
+        isbn = self.normalise_isbn(isbn)
         book = self.find_book(isbn)
         return book.stock if book else 0
+
+    def normalise_isbn(self, isbn):
+        return isbn.replace("-", "")
