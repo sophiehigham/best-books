@@ -13,6 +13,8 @@ class Inventory:
         self.books = []
 
     def add_book(self, book):
+        # Don't include hyphen in isbn for consistency
+        book.isbn = book.isbn.replace("-", "")
         self.books.append(book)
 
     def find_book(self, isbn):
