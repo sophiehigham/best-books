@@ -6,15 +6,15 @@ class Book:
         self.isbn = isbn
 
     def __repr__(self):
-        self.books = []
-    
+        return f"Book(title={self.title}, author={self.author}, stock={self.stock}, isbn={self.isbn})"
+
 class Inventory:
     def __init__(self):
         self.books = []
-    
-    def add_books(self, book):
+
+    def add_book(self, book):
         self.books.append(book)
-    
+
     def find_book(self, isbn):
         for book in self.books:
             if book.isbn == isbn:
@@ -24,12 +24,10 @@ class Inventory:
     def sell_book(self, isbn):
         book = self.find_book(isbn)
         if book and book.stock > 0:
-            book.stock-=1
+            book.stock -= 1
             return True
         return False
 
     def get_quantity(self, isbn):
-        for book in self.books:
-            if book.isbn == isbn:
-                return book.stock
-        return 0
+        book = self.find_book(isbn)
+        return book.stock if book else 0
