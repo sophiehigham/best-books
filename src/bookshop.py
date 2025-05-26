@@ -16,6 +16,8 @@ class Inventory:
         self.books = []
 
     def add_book(self, book):
+        # Not store hyphen in ISBN
+        book.isbn = book.isbn.replace("-","")
         # Add a book to the inventory list
         self.books.append(book)
 
